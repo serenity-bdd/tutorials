@@ -1,12 +1,10 @@
 repositories {
-    jcenter()
-    mavenLocal()
+    mavenCentral()
 }
 
 buildscript {
     repositories {
-        mavenLocal()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.31")
@@ -24,13 +22,13 @@ ext {
 }
 
 dependencies {
-    compile "net.serenity-bdd:serenity-core:${serenityCoreVersion}"
-    compile "net.serenity-bdd:serenity-junit:${serenityCoreVersion}"
-    compile "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}"
-    compile "net.serenity-bdd:browse-the-web:${serenityCoreVersion}"
-    testCompile('junit:junit:4.12')
-    compile('org.assertj:assertj-core:1.7.0')
-    compile "ch.qos.logback:logback-classic:${logbackVersion}"
+    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}"
+    testImplementation "net.serenity-bdd:serenity-junit:${serenityCoreVersion}"
+    testImplementation "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}"
+    testImplementation "net.serenity-bdd:browse-the-web:${serenityCoreVersion}"
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:1.7.0'
+    testImplementation "ch.qos.logback:logback-classic:${logbackVersion}"
 }
 gradle.startParameter.continueOnFailure = true
 
