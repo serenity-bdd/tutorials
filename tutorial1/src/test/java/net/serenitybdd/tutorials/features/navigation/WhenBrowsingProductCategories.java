@@ -1,18 +1,19 @@
 package net.serenitybdd.tutorials.features.navigation;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.tutorials.model.Category;
 import net.serenitybdd.tutorials.steps.NavigatingUser;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
 /**
  * Created by john on 9/05/2016.
  */
-@RunWith(SerenityRunner.class)
+@ExtendWith(SerenityJUnit5Extension.class)
 public class WhenBrowsingProductCategories {
 
     @Steps

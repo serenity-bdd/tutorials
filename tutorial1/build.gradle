@@ -11,19 +11,26 @@ repositories {
 
 ext {
     serenityCoreVersion = '3.2.4'
-    junitVersion = '4.12'
+    junitVersion = '5.8.2'
     assertJVersion = '3.22.0'
     logbackVersion = '1.2.11'
 }
 
 dependencies {
     testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}"
-    testImplementation "net.serenity-bdd:serenity-junit:${serenityCoreVersion}"
+    testImplementation "net.serenity-bdd:serenity-junit5:${serenityCoreVersion}"
     testImplementation "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}"
     testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}"
-    testImplementation "junit:junit:${junitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "org.assertj:assertj-core:${assertJVersion}"
     testImplementation "ch.qos.logback:logback-classic:${logbackVersion}"
 }
+
+test {
+    useJUnitPlatform()
+    testLogging.showStandardStreams = true
+}
+
 gradle.startParameter.continueOnFailure = true
 
