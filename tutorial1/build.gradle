@@ -18,13 +18,19 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'net.serenity-bdd.aggregator'
 
+ext {
+    serenityCoreVersion = '1.1.31'
+    logbackVersion = '1.2.11'
+}
+
 dependencies {
-    compile 'net.serenity-bdd:serenity-core:1.1.31'
-    compile 'net.serenity-bdd:serenity-junit:1.1.31'
-    compile 'net.serenity-bdd:serenity-screenplay:1.1.31'
-    compile 'net.serenity-bdd:browse-the-web:1.1.31'
+    compile "net.serenity-bdd:serenity-core:${serenityCoreVersion}"
+    compile "net.serenity-bdd:serenity-junit:${serenityCoreVersion}"
+    compile "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}"
+    compile "net.serenity-bdd:browse-the-web:${serenityCoreVersion}"
     testCompile('junit:junit:4.12')
     compile('org.assertj:assertj-core:1.7.0')
+    compile "ch.qos.logback:logback-classic:${logbackVersion}"
 }
 gradle.startParameter.continueOnFailure = true
 
