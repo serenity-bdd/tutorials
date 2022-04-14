@@ -1,25 +1,27 @@
 package net.serenitybdd.tutorials.features.search;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
-import net.thucydides.core.annotations.Issue;
-import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Steps;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import net.serenitybdd.tutorials.tasks.OpenTheApplication;
 import net.serenitybdd.tutorials.tasks.Search;
+import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Steps;
 
-import static net.serenitybdd.screenplay.GivenWhenThen.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.WebDriver;
+
 import static net.serenitybdd.screenplay.EventualConsequence.eventually;
+import static net.serenitybdd.screenplay.GivenWhenThen.givenThat;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.GivenWhenThen.then;
+import static net.serenitybdd.screenplay.GivenWhenThen.when;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasItem;
 
-@RunWith(SerenityRunner.class)
+@ExtendWith(SerenityJUnit5Extension.class)
 public class SearchByKeywordStory {
 
     Actor anna = Actor.named("Anna");
@@ -30,7 +32,7 @@ public class SearchByKeywordStory {
     @Steps
     OpenTheApplication openTheApplication;
 
-    @Before
+    @BeforeEach
     public void annaCanBrowseTheWeb() {
         anna.can(BrowseTheWeb.with(herBrowser));
     }
